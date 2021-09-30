@@ -11,7 +11,10 @@ public class acidrain extends obstacle
 
     private float yVelocity;
     private final float GRAVITY;
-
+    public acidrain(float gravity)
+    {
+        GRAVITY = gravity;
+    }
     public void act()
     {
 

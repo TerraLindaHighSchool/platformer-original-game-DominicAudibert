@@ -12,6 +12,10 @@ public class rock extends obstacle
     private float yVelocity;
     private final float GRAVITY;
 
+    public rock(float gravity)
+    {
+        GRAVITY = gravity;
+    }
     public void act()
     {
 

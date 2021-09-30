@@ -11,7 +11,10 @@ public class trapdoor extends obstacle
 
     private float yVelocity;
     private final float GRAVITY;
-
+    public trapdoor(float gravity)
+    {
+        GRAVITY = gravity;
+    }
     public void act()
     {
 

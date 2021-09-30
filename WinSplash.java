@@ -27,8 +27,7 @@ public class WinSplash extends World
     {
         Door door = new Door();
         addObject(door,1155,50);
-        Player player = new Player();
-        addObject(player,68,639);
+       
     }
 }
 //fart
