@@ -6,12 +6,12 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class trapdoor extends obstacle
+public class Trapdoor extends Obstacle
 {
 
     private float yVelocity;
     private final float GRAVITY;
-    public trapdoor(float gravity)
+    public Trapdoor(float gravity)
     {
         GRAVITY = gravity;
     }

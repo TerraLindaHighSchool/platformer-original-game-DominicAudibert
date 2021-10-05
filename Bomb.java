@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Bomb extends obstacle
+public class Bomb extends Obstacle
 {  public Bomb(float gravity)
     {
         GRAVITY = gravity;

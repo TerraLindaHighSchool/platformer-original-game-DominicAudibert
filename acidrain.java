@@ -6,12 +6,12 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class acidrain extends obstacle
+public class AcidRain extends Obstacle
 {
 
     private float yVelocity;
     private final float GRAVITY;
-    public acidrain(float gravity)
+    public AcidRain(float gravity)
     {
         GRAVITY = gravity;
     }

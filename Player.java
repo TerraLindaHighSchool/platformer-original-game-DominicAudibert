@@ -33,7 +33,8 @@ public class Player extends Actor
     
        
         animator();
-        move(speed);
+        fall();
+        onCollision();
     
 
     }
@@ -51,7 +52,7 @@ public class Player extends Actor
         JUMP_FORCE = jumpForce;
         GRAVITY = gravity;
         NEXT_LEVEL = nextLevel;
-        MUSIC= music;
+        MUSIC = music;
         this.speed = speed;
 
     }
@@ -108,23 +109,88 @@ public class Player extends Actor
               
         }
     }
-
-     private void onCollision( )
+    private boolean isOnGround()
     {
-    if(isTouching(Door.class))
-    {
-        World world = null;
-        try 
-        {
-            world = (World) NEXT_LEVEL.newInstance();
-        }   
-        catch (InstantiationException e) 
-        {
-            System.out.println("Class cannot be instantiated");
-        } catch (IllegalAccessException e) {
-            System.out.println("Cannot access class constructor");
-        } 
-        Greenfoot.setWorld(world);
+        Actor ground = getOneObjectAtOffset(0, getImage().getHeight() / 2, 
+                       platform.class);
+        return ground != null;
     }
-}
+     
+    private void onCollision( )
+    {
+        if(isTouching(Door.class))
+        {
+            World world = null;
+            try 
+            {
+                world = (World) NEXT_LEVEL.newInstance();
+            }   
+            catch (InstantiationException e) 
+            {
+                System.out.println("Class cannot be instantiated");
+            } catch (IllegalAccessException e) {
+                System.out.println("Cannot access class constructor");
+            } 
+            Greenfoot.setWorld(world);
+        }
+        
+        if(isTouching(Obstacle.class))
+        {
+            removeTouching(Obstacle.class);
+        }
+        
+        if(isTouching(platform.class) && !isOnGround())
+        {
+            yVelocity = -1;
+            fall();
+        }
+    }
 
+    private void walk()
+    {
+        if(isWalking)
+        {
+            animator();
+        }
+        else
+        {
+            setImage(STANDING_IMAGE);
+            walkIndex = 0;
+        }
+        
+        if(Greenfoot.isKeyDown("right"))
+        {
+            if(isFacingLeft)
+            {
+                mirrorImages();
+            }
+            isFacingLeft = false;
+            isWalking = true;
+            
+            
+            move(speed);
+        }
+        
+        if(Greenfoot.isKeyDown("left"))
+        {
+            if(!isFacingLeft)
+            {
+                mirrorImages();
+            }
+            isFacingLeft = true;
+            isWalking = true;
+            move(-speed);
+        }
+        
+        if(!(Greenfoot.isKeyDown("left") || Greenfoot.isKeyDown("right")))
+        {
+            isWalking = false;
+        }
+    } 
+}   
+        
+        
+        
+        
+        
+        

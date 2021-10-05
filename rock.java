@@ -6,13 +6,13 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class rock extends obstacle
+public class Rock extends Obstacle
 {
 
     private float yVelocity;
     private final float GRAVITY;
 
-    public rock(float gravity)
+    public Rock(float gravity)
     {
         GRAVITY = gravity;
     }

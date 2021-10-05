@@ -17,7 +17,7 @@ public class Level1 extends World
         // Create a new world with 1200x800 cells with a cell size of 1x1 pixels.
 
         super(1200, 800, 1, false); 
-        setPaintOrder(Player.class, platform.class, obstacle.class, collectable.class,
+        setPaintOrder(Player.class, platform.class, Obstacle.class, collectable.class,
             Door.class, HUD.class);
         prepare();
     }
@@ -46,6 +46,8 @@ public class Level1 extends World
         BrickWall brickWall4 = new BrickWall();
         addObject(brickWall4,954,411);
         gem.setLocation(143,204);
+        Floor floor = new Floor();
+        addObject(floor,595,779);
     }
     
     private final float GRAVITY = 0.0667f;
