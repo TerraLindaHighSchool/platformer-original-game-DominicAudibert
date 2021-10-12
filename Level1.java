@@ -3,7 +3,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
  * Write a description of class BrickWorld here.
  * 
- * @author (your name) 
+ * @DominicAudibert 
  * @version (a version number or a date)
  */
 public class Level1 extends World
@@ -17,8 +17,7 @@ public class Level1 extends World
         // Create a new world with 1200x800 cells with a cell size of 1x1 pixels.
 
         super(1200, 800, 1, false); 
-        setPaintOrder(Player.class, platform.class, Obstacle.class, collectable.class,
-            Door.class, HUD.class);
+        
         prepare();
     }
     
@@ -28,6 +27,9 @@ public class Level1 extends World
      */
     private void prepare()
     {
+        setPaintOrder(Player.class, platform.class, Obstacle.class, collectable.class,
+            Door.class, HUD.class);
+
         Player player = new Player(3, 5.6f, GRAVITY, 3, 3, Level2.class, MUSIC);
         addObject(player,55,692);
         Door door = new Door();
@@ -48,6 +50,40 @@ public class Level1 extends World
         gem.setLocation(143,204);
         Floor floor = new Floor();
         addObject(floor,595,779);
+        Floor floor2 = new Floor();
+        addObject(floor2,896,649);
+        floor2.setLocation(916,649);
+        removeObject(floor2);
+
+        addObject(floor2,596,729);
+        player.setLocation(53,668);
+        removeObject(floor2);
+        player.setLocation(53,708);
+        floor.setLocation(639,791);
+        player.setLocation(56,743);
+        floor.setLocation(759,743);
+        player.setLocation(68,661);
+        floor.setLocation(102,729);
+        removeObject(floor);
+
+        addObject(floor,600,800);
+        player.setLocation(49,750);
+        removeObject(gem);
+        brickWall.setLocation(252,660);
+        brickWall4.setLocation(795,488);
+        brickWall3.setLocation(528,404);
+        brickWall2.setLocation(864,277);
+        door.setLocation(755,251);
+        brickWall3.setLocation(392,420);
+        brickWall4.setLocation(869,553);
+        brickWall2.setLocation(947,344);
+        door.setLocation(749,286);
+        brickWall3.setLocation(426,401);
+        Trapdoor trapdoor = new Trapdoor(3.2f);
+        addObject(trapdoor,533,398);
+        AcidRain acidRain = new AcidRain(2.3f);
+        addObject(acidRain,512,208);
+        brickWall3.setLocation(196,400);
     }
     
     private final float GRAVITY = 0.0667f;

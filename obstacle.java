@@ -8,8 +8,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public abstract class Obstacle extends Actor
 {
-    protected abstract void fall();
     
+    protected abstract void fall();
+
     protected boolean isOnGround()
     {
         Actor ground = getOneObjectAtOffset(0, getImage().getHeight() / 2, 
@@ -26,4 +27,5 @@ public abstract class Obstacle extends Actor
         }
     }
 }
+
 
