@@ -26,6 +26,7 @@ public abstract class Obstacle extends Actor
             getWorld().removeObject(obstacle);
         }
     }
+    
 }
 
 

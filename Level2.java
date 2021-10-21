@@ -16,7 +16,7 @@ public class Level2 extends World
     {    
         // Create a new world with 1200x800 cells with a cell size of 1x1 pixels.
 
-        super(1200, 800, 1, false); 
+        super(1100, 800, 1, false); 
         
         prepare();
     }
@@ -30,7 +30,7 @@ public class Level2 extends World
         setPaintOrder(Player.class, platform.class, Obstacle.class, collectable.class,
             Door.class, HUD.class);
 
-        Player player = new Player(3, 5.6f, GRAVITY, 3, 3, Level2.class, MUSIC);
+        Player player = new Player(3, 5.6f, GRAVITY, 3, 3, Level3.class, MUSIC);
         addObject(player,55,692);
         Door door = new Door();
         addObject(door,1150,59);
@@ -38,16 +38,16 @@ public class Level2 extends World
         BrickWall brickWall = new BrickWall();
         addObject(brickWall,565,501);
         Gem gem = new Gem();
-        
+        addObject(gem,478,192);
         BrickWall brickWall2 = new BrickWall();
         addObject(brickWall2,958,122);
         BrickWall brickWall3 = new BrickWall();
         addObject(brickWall3,329,261);
         brickWall.setLocation(318,606);
-      
+        gem.setLocation(806,76);
         BrickWall brickWall4 = new BrickWall();
         addObject(brickWall4,954,411);
-   
+        gem.setLocation(143,204);
         Floor floor = new Floor();
         addObject(floor,595,779);
         Floor floor2 = new Floor();
@@ -68,8 +68,36 @@ public class Level2 extends World
 
         addObject(floor,600,800);
         player.setLocation(49,750);
+        removeObject(gem);
+        brickWall.setLocation(252,660);
+        brickWall4.setLocation(795,488);
+        brickWall3.setLocation(528,404);
+        brickWall2.setLocation(864,277);
+        door.setLocation(755,251);
+        brickWall3.setLocation(392,420);
+        brickWall4.setLocation(869,553);
+        brickWall2.setLocation(947,344);
+        door.setLocation(749,286);
+        brickWall3.setLocation(426,401);
+        Trapdoor trapdoor = new Trapdoor(3.2f);
+        addObject(trapdoor,533,398);
+        AcidRain acidRain = new AcidRain(2.3f);
+        addObject(acidRain,512,208);
+        brickWall3.setLocation(196,400);
+        door.setLocation(950,242);
+        removeObject(door);
+
+        addObject(door,763,292);
+        brickWall3.setLocation(86,392);
+        brickWall3.setLocation(128,392);
+        brickWall3.setLocation(172,393);
+        trapdoor.setLocation(452,394);
+        brickWall3.setLocation(313,392);
+        trapdoor.setLocation(356,388);
+        removeObject(acidRain);
+        trapdoor.setLocation(407,324);
+        removeObject(trapdoor);
     }
-    
     private final float GRAVITY = 0.0667f;
     private final GreenfootSound MUSIC = new GreenfootSound("zapsplat_024.mp3");
 }

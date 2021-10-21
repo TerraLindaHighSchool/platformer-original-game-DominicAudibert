@@ -26,7 +26,7 @@ public class Player extends Actor
     private final GreenfootSound MUSIC;
     private final int MAX_POWERUP;
     private final int MAX_HEALTH;
-    
+
     public Player(int speed, float jumpForce, float gravity, int maxHealth, int maxPowerup, Class nextLevel, GreenfootSound music)
     {
         WALK_ANIMATION = new GreenfootImage[]
@@ -37,17 +37,19 @@ public class Player extends Actor
             new GreenfootImage("walk4.png"),
             new GreenfootImage("walk5.png"),
         };
-        
+        health = new Health[maxHealth];
         STANDING_IMAGE = new GreenfootImage("standing.png");
         JUMP_FORCE = jumpForce;
         GRAVITY = gravity;
+        healthCount = 3;
+        health = new Health[healthCount];
         NEXT_LEVEL = nextLevel;
         MAX_POWERUP = maxPowerup;
         MAX_HEALTH = maxHealth;
         MUSIC = music;
         this.speed = speed;
     }
-    
+
     /**
      * Act - do whatever the Player wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -58,10 +60,8 @@ public class Player extends Actor
         jump();
         fall();
         onCollision();
-    
-
+        gameOver();
     }
-    
     private void animator()
     {
         if(frame % (15 - 2 * speed) == 0)
@@ -78,7 +78,7 @@ public class Player extends Actor
         }
         frame++;
     }
-    
+
     private void jump()
     { 
         if(Greenfoot.isKeyDown("space") && isOnGround())
@@ -86,7 +86,7 @@ public class Player extends Actor
             yVelocity = JUMP_FORCE;
             isJumping = true;
         }
-        
+
         if(isJumping && yVelocity > 0.0)
         {
             setLocation(getX(), getY() - (int) yVelocity);
@@ -97,7 +97,7 @@ public class Player extends Actor
             isJumping = false;
         }
     }
-    
+
     private void fall()
     {
         if(!isOnGround() && !isJumping)
@@ -111,17 +111,18 @@ public class Player extends Actor
     {
         for(int i = 0; i < WALK_ANIMATION.length; i++)
         {
-              WALK_ANIMATION[i].mirrorHorizontally();
-              
+            WALK_ANIMATION[i].mirrorHorizontally();
+
         }
     }
+
     private boolean isOnGround()
     {
         Actor ground = getOneObjectAtOffset(0, getImage().getHeight() / 2, 
-                       platform.class);
+                platform.class);
         return ground != null;
     }
-     
+
     private void onCollision( )
     {
         if(isTouching(Door.class))
@@ -139,21 +140,22 @@ public class Player extends Actor
             } 
             Greenfoot.setWorld(world);
         }
-        
+
         if(isTouching(Obstacle.class))
         {
             removeTouching(Obstacle.class);
+            getWorld().removeObject(health[healthCount - 1]);
+            healthCount--;
         }
-        
+
         if(isTouching(platform.class) && !isOnGround())
         {
             yVelocity = -1;
             fall();
         }
     }
-    
-   
-        private void walk()
+
+    private void walk()
     {
         if(isWalking)
         {
@@ -164,7 +166,7 @@ public class Player extends Actor
             setImage(STANDING_IMAGE);
             walkIndex = 0;
         }
-        
+
         if(Greenfoot.isKeyDown("right"))
         {
             if(isFacingLeft)
@@ -173,11 +175,10 @@ public class Player extends Actor
             }
             isFacingLeft = false;
             isWalking = true;
-            
-            
+
             move(speed);
         }
-        
+
         if(Greenfoot.isKeyDown("left"))
         {
             if(!isFacingLeft)
@@ -188,16 +189,31 @@ public class Player extends Actor
             isWalking = true;
             move(-speed);
         }
-        
+
         if(!(Greenfoot.isKeyDown("left") || Greenfoot.isKeyDown("right")))
         {
             isWalking = false;
         }
     } 
+
+      private void gameOver()
+    {
+        if(healthCount == 0)
+        {
+            Greenfoot.setWorld(new Level1());
+        }
+    }
+
+    public void addedToWorld(World world)
+    {   
+        health[0] = new Health();
+        world.addObject(health[0], 30, 36);
+        health[1] = new Health();
+        world.addObject(health[1], 72, 36);
+        health[2] = new Health();
+        world.addObject(health[2], 114, 36);
+    }
 }
-        
-        
-        
-        
+
         
         

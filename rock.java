@@ -22,7 +22,7 @@ public class Rock extends Obstacle
     }
 
     protected void fall()
-    { 
-
+   {
+    
     }
 }

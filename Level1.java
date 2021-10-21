@@ -8,6 +8,14 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Level1 extends World
 {
+    private final float GRAVITY = 0.0667f;
+    private final GreenfootSound MUSIC = new GreenfootSound("zapsplat_024.mp3");
+    private final int SPEED = 3;
+    private final float JUMP_FORCE = 5.6f;
+    private final int MAX_HEALTH = 3;
+    private final int MAX_POWERUP = 3;
+    private final Class NEXT_LEVEL = Level2.class;
+    
     /**
      * Constructor for objects of class BrickWorld.
      * 
@@ -16,10 +24,15 @@ public class Level1 extends World
     {    
         // Create a new world with 1200x800 cells with a cell size of 1x1 pixels.
 
-        super(1200, 800, 1, false); 
+        super(1100, 800, 1, false); 
         
         prepare();
     }
+    public void act()
+    {
+        spawn();   
+    }
+    
     
     /**
      * Prepare the world for the start of the program.
@@ -84,9 +97,74 @@ public class Level1 extends World
         AcidRain acidRain = new AcidRain(2.3f);
         addObject(acidRain,512,208);
         brickWall3.setLocation(196,400);
+        door.setLocation(950,242);
+        removeObject(door);
+
+        addObject(door,763,292);
+        brickWall3.setLocation(86,392);
+        brickWall3.setLocation(128,392);
+        brickWall3.setLocation(172,393);
+        trapdoor.setLocation(452,394);
+        brickWall3.setLocation(313,392);
+        trapdoor.setLocation(356,388);
+        removeObject(acidRain);
+        trapdoor.setLocation(407,324);
+        removeObject(trapdoor);
+        Health health = new Health();
+
+        Bomb bomb = new Bomb(0.667f);
+        addObject(bomb,177,325);
+        bomb.setLocation(187,330);
+        bomb.setLocation(182,336);
+        bomb.setLocation(195,333);
+        bomb.setLocation(185,314);
+        bomb.setLocation(240,324);
+        bomb.setLocation(160,337);
+        bomb.setLocation(189,338);
+        bomb.setLocation(172,332);
+        bomb.setLocation(196,348);
+        bomb.setLocation(183,327);
+        bomb.setLocation(183,327);
+        bomb.setLocation(183,327);
+        bomb.setLocation(183,327);
+        Bomb bomb2 = new Bomb(0.0667f);
+        addObject(bomb2,856,498);
+        Bomb bomb3 = new Bomb(0.0667f);
+        addObject(bomb3,333,606);
+        removeObject(brickWall);
+        removeObject(brickWall4);
+        removeObject(brickWall3);
+        brickWall2.setLocation(776,346);
+        wooden wooden = new wooden();
+        addObject(wooden,776,346);
+        removeObject(brickWall2);
+        wooden wooden2 = new wooden();
+        addObject(wooden2,331,664);
+        wooden wooden3 = new wooden();
+        addObject(wooden3,179,386);
+        wooden wooden4 = new wooden();
+        addObject(wooden4,1040,685);
+        wooden wooden5 = new wooden();
+        addObject(wooden5,898,539);
+        wooden5.setLocation(893,552);
+        wooden wooden6 = new wooden();
+        addObject(wooden6,26,552);
+        wooden wooden7 = new wooden();
+        addObject(wooden7,477,608);
+        wooden wooden8 = new wooden();
+        addObject(wooden8,611,460);
     }
     
-    private final float GRAVITY = 0.0667f;
-    private final GreenfootSound MUSIC = new GreenfootSound("zapsplat_024.mp3");
+    private void spawn()
+    {
+        if(Math.random() < 0.0025)
+        {
+            addObject(new Rock(GRAVITY), Greenfoot.getRandomNumber(1200), -30);
+        }
+    }
+    
+    
+    
+    
 }
 
