@@ -97,6 +97,20 @@ public class Level2 extends World
         removeObject(acidRain);
         trapdoor.setLocation(407,324);
         removeObject(trapdoor);
+        
+    }
+    
+    public void act()
+    {
+        spawn();   
+    }
+    
+    private void spawn()
+    {
+        if(Math.random() < 0.0050)
+        {
+            addObject(new Rock(GRAVITY), Greenfoot.getRandomNumber(1200), -30);
+        }
     }
     private final float GRAVITY = 0.0667f;
     private final GreenfootSound MUSIC = new GreenfootSound("zapsplat_024.mp3");

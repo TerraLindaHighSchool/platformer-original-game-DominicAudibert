@@ -87,6 +87,12 @@ public class Player extends Actor
             isJumping = true;
         }
 
+        if(Greenfoot.isKeyDown("up") && isOnGround())
+        {
+            yVelocity = JUMP_FORCE;
+            isJumping = true;
+        }
+        
         if(isJumping && yVelocity > 0.0)
         {
             setLocation(getX(), getY() - (int) yVelocity);
@@ -139,6 +145,23 @@ public class Player extends Actor
                 System.out.println("Cannot access class constructor");
             } 
             Greenfoot.setWorld(world);
+        }
+        
+        if(isTouching(Gem.class))
+        {
+            World world = null;
+            try 
+            {
+                world = (World) NEXT_LEVEL.newInstance();
+            }   
+            catch (InstantiationException e) 
+            {
+                System.out.println("Class cannot be instantiated");
+            } catch (IllegalAccessException e) {
+                System.out.println("Cannot access class constructor");
+            } 
+            Greenfoot.setWorld(new WinSplash());
+            Greenfoot.stop();
         }
 
         if(isTouching(Obstacle.class))
@@ -200,18 +223,18 @@ public class Player extends Actor
     {
         if(healthCount == 0)
         {
-            Greenfoot.setWorld(new Level1());
+            Greenfoot.setWorld(new gameOver());
         }
     }
 
     public void addedToWorld(World world)
     {   
         health[0] = new Health();
-        world.addObject(health[0], 30, 36);
+        world.addObject(health[0], 30, 100);
         health[1] = new Health();
-        world.addObject(health[1], 72, 36);
+        world.addObject(health[1], 72, 100);
         health[2] = new Health();
-        world.addObject(health[2], 114, 36);
+        world.addObject(health[2], 114, 100);
     }
 }
 

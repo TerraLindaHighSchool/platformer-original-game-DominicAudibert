@@ -7,22 +7,26 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @version (a version number or a date)
  */
 public class Rock extends Obstacle
-{
+{  public Rock(float gravity)
+    {
+        GRAVITY = gravity;
+    }
 
     private float yVelocity;
     private final float GRAVITY;
 
-    public Rock(float gravity)
-    {
-        GRAVITY = gravity;
-    }
     public void act()
     {
-
+        fall();
     }
 
     protected void fall()
-   {
-    
+    { 
+    if(!isOnGround())
+    {
+        yVelocity += GRAVITY;
+        setLocation(getX(), getY() + (int) yVelocity);
     }
+}
+
 }

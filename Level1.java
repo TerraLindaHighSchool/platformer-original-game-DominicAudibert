@@ -9,7 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Level1 extends World
 {
     private final float GRAVITY = 0.0667f;
-    private final GreenfootSound MUSIC = new GreenfootSound("zapsplat_024.mp3");
+    private final GreenfootSound MUSIC = new GreenfootSound("DominicaudibertJazz.mp3");
     private final int SPEED = 3;
     private final float JUMP_FORCE = 5.6f;
     private final int MAX_HEALTH = 3;
@@ -28,10 +28,7 @@ public class Level1 extends World
         
         prepare();
     }
-    public void act()
-    {
-        spawn();   
-    }
+    
     
     
     /**
@@ -155,13 +152,7 @@ public class Level1 extends World
         addObject(wooden8,611,460);
     }
     
-    private void spawn()
-    {
-        if(Math.random() < 0.0025)
-        {
-            addObject(new Rock(GRAVITY), Greenfoot.getRandomNumber(1200), -30);
-        }
-    }
+    
     
     
     

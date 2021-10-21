@@ -17,12 +17,14 @@ public class Gem extends collectable
         // Add your action code here.
     }
 
-    protected void removeOutOfBounds(Obstacle obstacle)
+
+    
+    protected void removeOutOfBounds(Gem gem)
     {
-        if(obstacle.getY() > 
-           getWorld().getHeight()+obstacle.getImage().getWidth() /2)
+        if(gem.getY() > 
+           getWorld().getHeight()+gem.getImage().getWidth() /2)
         {
-            getWorld().removeObject(obstacle);
+            getWorld().removeObject(gem);
         }
     }
 }
