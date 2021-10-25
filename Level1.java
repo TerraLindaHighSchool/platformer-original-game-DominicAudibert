@@ -8,10 +8,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Level1 extends World
 {
-    private final float GRAVITY = 0.0667f;
-    private final GreenfootSound MUSIC = new GreenfootSound("DominicaudibertJazz.mp3");
+    private final float GRAVITY = 0.08f;
+    private final GreenfootSound MUSIC = new GreenfootSound("TheJazz.mp3");
     private final int SPEED = 3;
-    private final float JUMP_FORCE = 5.6f;
+    private final float JUMP_FORCE = 4.6f;
     private final int MAX_HEALTH = 3;
     private final int MAX_POWERUP = 3;
     private final Class NEXT_LEVEL = Level2.class;
@@ -150,6 +150,15 @@ public class Level1 extends World
         addObject(wooden7,477,608);
         wooden wooden8 = new wooden();
         addObject(wooden8,611,460);
+        wooden6.setLocation(20,629);
+        wooden6.setLocation(18,624);
+        wooden3.setLocation(173,433);
+        wooden3.setLocation(206,469);
+        bomb3.setLocation(361,616);
+        bomb.setLocation(267,427);
+        bomb.setLocation(232,427);
+        wooden3.setLocation(184,484);
+        bomb.setLocation(208,443);
     }
     
     

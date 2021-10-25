@@ -134,6 +134,7 @@ public class Player extends Actor
         if(isTouching(Door.class))
         {
             World world = null;
+            GreenfootSound sound = new GreenfootSound("collectable.wav");
             try 
             {
                 world = (World) NEXT_LEVEL.newInstance();
@@ -192,6 +193,11 @@ public class Player extends Actor
 
         if(Greenfoot.isKeyDown("right"))
         {
+            if(!MUSIC.isPlaying())
+            {
+                MUSIC.playLoop();
+            }
+            
             if(isFacingLeft)
             {
                 mirrorImages();
