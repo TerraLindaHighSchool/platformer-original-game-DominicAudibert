@@ -33,6 +33,13 @@ public class Level3 extends World
         spawn();   
     }
     
+    private void spawn()
+    {
+        if(Math.random() < 0.0050)
+        {
+            addObject(new AcidRain(GRAVITY), Greenfoot.getRandomNumber(1200), -30);
+        }
+    }
     
     /**
      * Prepare the world for the start of the program.
@@ -72,17 +79,6 @@ public class Level3 extends World
         Bomb bomb3 = new Bomb(0.0667f);
         addObject(bomb2,900,750);
     }
-    
-    private void spawn()
-    {
-        if(Math.random() < 0.0050)
-        {
-            addObject(new Bomb(GRAVITY), Greenfoot.getRandomNumber(1200), -30);
-        }
-    }
-    
-    
-    
-    
-}
+} 
+
 

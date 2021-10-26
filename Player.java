@@ -133,6 +133,7 @@ public class Player extends Actor
     {
         if(isTouching(Door.class))
         {
+            MUSIC.stop();
             World world = null;
             GreenfootSound sound = new GreenfootSound("collectable.wav");
             try 
@@ -150,6 +151,7 @@ public class Player extends Actor
         
         if(isTouching(Gem.class))
         {
+            MUSIC.stop();
             World world = null;
             try 
             {
