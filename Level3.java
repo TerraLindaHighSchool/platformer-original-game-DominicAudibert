@@ -9,7 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Level3 extends World
 {
     private final float GRAVITY = 0.0667f;
-    private final GreenfootSound MUSIC = new GreenfootSound("zapsplat_024.mp3");
+    private final GreenfootSound MUSIC = new GreenfootSound("TheJazz.mp3");
     private final int SPEED = 3;
     private final float JUMP_FORCE = 5.6f;
     private final int MAX_HEALTH = 3;
@@ -35,7 +35,7 @@ public class Level3 extends World
     
     private void spawn()
     {
-        if(Math.random() < 0.0050)
+        if(Math.random() < 0.0080)
         {
             addObject(new AcidRain(GRAVITY), Greenfoot.getRandomNumber(1200), -30);
         }
@@ -72,12 +72,12 @@ public class Level3 extends World
        
         Health health = new Health();
 
-        Bomb bomb = new Bomb(0.667f);
-        addObject(bomb,650,400);
-        Bomb bomb2 = new Bomb(0.0667f);
-        addObject(bomb2,300,750);
-        Bomb bomb3 = new Bomb(0.0667f);
-        addObject(bomb2,900,750);
+        Purp purp = new Purp(0.667f);
+        addObject(purp,650,400);
+        Purp purp2 = new Purp(0.0667f);
+        addObject(purp2,300,750);
+        Purp purp3 = new Purp(0.0667f);
+        addObject(purp2,900,750);
     }
 } 
 

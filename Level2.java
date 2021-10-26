@@ -33,18 +33,18 @@ public class Level2 extends World
         Player player = new Player(3, 5.6f, GRAVITY, 3, 3, Level3.class, MUSIC);
         addObject(player,55,692);
         Door door = new Door();
-        addObject(door,1150,59);
+        addObject(door,1200,59);
 
         BrickWall brickWall = new BrickWall();
         addObject(brickWall,565,501);
         Gem gem = new Gem();
-        addObject(gem,478,192);
+        addObject(gem,1050,192);
         BrickWall brickWall2 = new BrickWall();
         addObject(brickWall2,958,122);
         BrickWall brickWall3 = new BrickWall();
         addObject(brickWall3,329,261);
         brickWall.setLocation(318,606);
-        gem.setLocation(806,76);
+        gem.setLocation(1050,76);
         BrickWall brickWall4 = new BrickWall();
         addObject(brickWall4,954,411);
         gem.setLocation(143,204);

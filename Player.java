@@ -85,12 +85,14 @@ public class Player extends Actor
         {
             yVelocity = JUMP_FORCE;
             isJumping = true;
+            Greenfoot.playSound("jump.wav");
         }
 
         if(Greenfoot.isKeyDown("up") && isOnGround())
         {
             yVelocity = JUMP_FORCE;
             isJumping = true;
+            Greenfoot.playSound("jump.wav");
         }
         
         if(isJumping && yVelocity > 0.0)
@@ -133,6 +135,7 @@ public class Player extends Actor
     {
         if(isTouching(Door.class))
         {
+            Greenfoot.playSound("collectable.wav");
             MUSIC.stop();
             World world = null;
             GreenfootSound sound = new GreenfootSound("collectable.wav");
@@ -151,6 +154,7 @@ public class Player extends Actor
         
         if(isTouching(Gem.class))
         {
+            Greenfoot.playSound("collectable.wav");
             MUSIC.stop();
             World world = null;
             try 
@@ -169,6 +173,7 @@ public class Player extends Actor
 
         if(isTouching(Obstacle.class))
         {
+            Greenfoot.playSound("explosionSmall.wav");
             removeTouching(Obstacle.class);
             getWorld().removeObject(health[healthCount - 1]);
             healthCount--;

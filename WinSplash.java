@@ -25,9 +25,7 @@ public class WinSplash extends World
      */
     private void prepare()
     {
-        Door door = new Door();
-        addObject(door,1155,50);
-       
+               
     }
 }
 
