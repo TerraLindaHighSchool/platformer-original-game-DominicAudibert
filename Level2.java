@@ -43,7 +43,7 @@ public class Level2 extends World
         addObject(brickWall2,958,122);
         BrickWall brickWall3 = new BrickWall();
         addObject(brickWall3,329,261);
-        brickWall.setLocation(318,606);
+      
         gem.setLocation(1050,76);
         BrickWall brickWall4 = new BrickWall();
         addObject(brickWall4,954,411);
@@ -107,7 +107,7 @@ public class Level2 extends World
     
     private void spawn()
     {
-        if(Math.random() < 0.0050)
+        if(Math.random() < 0.0080)
         {
             addObject(new Rock(GRAVITY), Greenfoot.getRandomNumber(1200), -30);
         }

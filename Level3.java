@@ -38,6 +38,7 @@ public class Level3 extends World
         if(Math.random() < 0.0080)
         {
             addObject(new AcidRain(GRAVITY), Greenfoot.getRandomNumber(1200), -30);
+            addObject(new Purp(GRAVITY), Greenfoot.getRandomNumber(1200), -30);
         }
     }
     

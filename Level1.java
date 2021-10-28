@@ -4,7 +4,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * Write a description of class BrickWorld here.
  * 
  * @DominicAudibert 
- * @version (a version number or a date)
+ * the game
  */
 public class Level1 extends World
 {
@@ -159,6 +159,13 @@ public class Level1 extends World
         bomb.setLocation(232,427);
         wooden3.setLocation(184,484);
         bomb.setLocation(208,443);
+        Bomb bomb4 = new Bomb(0.0667f);
+        addObject(bomb4,644,404);
+        Bomb bomb5 = new Bomb(0.0667f);
+        addObject(bomb5,625,767);
+        bomb5.setLocation(624,759);
+        Bomb bomb6 = new Bomb(0.0667f);
+        addObject(bomb6,793,759);
     }
     
     

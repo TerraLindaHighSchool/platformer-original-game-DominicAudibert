@@ -237,6 +237,7 @@ public class Player extends Actor
         if(healthCount == 0)
         {
             Greenfoot.setWorld(new gameOver());
+            MUSIC.stop();
         }
     }
 
